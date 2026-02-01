@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe-teleport-controls@0.4.3/dist/aframe-teleport-controls.min.js"></script> -->
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@6.1.3/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.1/dist/aframe-extras.min.js"></script>
   </head>
+
   <body>
     <a-scene physics="debug: false">
-      <a-sky color="#ECECEC"></a-sky>
+      <a-sky color="#87CEEB"></a-sky>
 
-      <a-plane id="floor" 
-         position="0 0 0" 
-         rotation="-90 0 0" 
-         width="4" 
-         height="4" 
-         color="#FF0000" 
-         static-body>
+      <a-plane
+        id="floor"
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#FF0000"
+        static-body
+      >
       </a-plane>
 
       <a-box
@@ -103,11 +105,11 @@
         color="#8B4513"
       ></a-box>
 
-      <a-entity id="rig" movement-controls="constrainToNavMesh: false; controls: checkpoint, touchpad, keyboard, gamepad">
-        <a-entity camera position="0 1.6 0" look-controls></a-entity>
-
-        <a-entity oculus-touch-controls="hand: left"></a-entity>
-        <a-entity oculus-touch-controls="hand: right" laser-controls="hand: right"></a-entity>
+      <!-- Camera rig for Quest 3S with teleport-controls -->
+      <a-entity id="rig" movement-controls="controls: gamepad,keyboard">
+        <a-entity id="head" camera position="0 1.6 0" look-controls> </a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+        <a-entity laser-controls="hand: left"></a-entity>
       </a-entity>
     </a-scene>
   </body>
