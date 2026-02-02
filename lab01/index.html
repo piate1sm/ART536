@@ -59,14 +59,14 @@
   <a-box width="0.58" height="0.02" depth="0.29" position="0 0.15 0.01" color="#EEE"></a-box>
   <a-box width="0.58" height="0.02" depth="0.29" position="0 -0.15 0.01" color="#EEE"></a-box>
 
-  <a-box id="bin-top-left" width="0.26" height="0.26" depth="0.29" position="-0.15 0.3 0.01" color="#03fcf4"></a-box>
-  <a-box id="bin-top-right" width="0.26" height="0.26" depth="0.29" position="0.15 0.3 0.01" color="#FFA500"></a-box>
+  <a-box id="bin-top-left" width="0.25" height="0.26" depth="0.29" position="-0.15 0.3 0.01" color="#03fcf4"></a-box>
+  <a-box id="bin-top-right" width="0.25" height="0.26" depth="0.29" position="0.15 0.3 0.01" color="#FFA500"></a-box>
 
-  <a-box id="bin-mid-left" width="0.26" height="0.26" depth="0.29" position="-0.15 0 0.01" color="#FFFF00"></a-box>
-  <a-box id="bin-mid-right" width="0.26" height="0.26" depth="0.29" position="0.15 0 0.01" color="#03fcf4"></a-box>
+  <a-box id="bin-mid-left" width="0.25" height="0.26" depth="0.29" position="-0.15 0 0.01" color="#FFFF00"></a-box>
+  <a-box id="bin-mid-right" width="0.25" height="0.26" depth="0.29" position="0.15 0 0.01" color="#03fcf4"></a-box>
 
-  <a-box id="bin-bot-left" width="0.26" height="0.26" depth="0.29" position="-0.15 -0.3 0.01" color="#FFA500"></a-box>
-  <a-box id="bin-bot-right" width="0.26" height="0.26" depth="0.29" position="0.15 -0.3 0.01" color="#FFFF00"></a-box>
+  <a-box id="bin-bot-left" width="0.25" height="0.26" depth="0.29" position="-0.15 -0.3 0.01" color="#FFA500"></a-box>
+  <a-box id="bin-bot-right" width="0.25" height="0.26" depth="0.29" position="0.15 -0.3 0.01" color="#FFFF00"></a-box>
 
   <a-entity id="tv-setup" position="0 0.455 0">
     <a-box width="0.3" height="0.02" depth="0.15" position="0 0.01 0" color="#111"></a-box>
@@ -189,19 +189,38 @@
     color="#111"
     material="roughness: 0.5">
   </a-box>
-  
   <a-plane 
     width="0.2" height="0.25" 
     position="0 0 0.011" 
     color="#e0a6ed">
   </a-plane>
-  
   <a-box 
     width="0.02" height="0.15" depth="0.01" 
     position="0 -0.05 -0.04" 
     rotation="25 0 0" 
     color="#111">
   </a-box>
+</a-entity>
+
+<a-entity id="desk-door" position="-1.197 1.050 -1.959">
+  <a-box width="0.9" height="2.1" depth="0.04" color="#FFFFFF"></a-box>
+    <a-sphere 
+      radius="0.03" 
+      position="0.35 -0.1 0.04" 
+      color="#FFD700" 
+      material="metalness: 0.8; roughness: 0.2">
+    </a-sphere>
+</a-entity>
+
+<a-entity id="dresser-door" position="-1.950 1.050 0.155" rotation="0 90 0">
+  <a-box width="0.9" height="2.1" depth="0.04" color="#FFFFFF"></a-box>
+  
+  <a-sphere 
+    radius="0.03" 
+    position="-0.35 -0.1 0.04" 
+    color="#FFD700" 
+    material="metalness: 0.8; roughness: 0.2">
+  </a-sphere>
 </a-entity>
 
       <a-entity id="rig" movement-controls="controls: gamepad,keyboard">
