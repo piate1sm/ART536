@@ -12,6 +12,7 @@
         <img id="bed_texture" src="bedding_texture.png">
         <img id="wood-texture" src="wood_table_worn_diff_1k.jpg">
         <img id="carpet-texture" src="carpet.png">
+        <img id="headboard-texture" src="headboard_texture.png">
       </a-assets>
 
       <a-sky color="#87CEEB"></a-sky>
@@ -33,18 +34,19 @@
 
       <a-plane id="ceiling" position="0 2.5 0" rotation="90 0 0" width="4" height="4" color="#f6f4ee" static-body></a-plane>
 
-      <a-entity id="bed" position="0.848 0.250 0.500" rotation="0 90 0">
-  <a-box 
-    width="1.5" height="0.5" depth="2" 
-    material="src: #bed_texture; color: #5cfff7; repeat: 3 3; roughness: 1">
-    shadow>
-  </a-box>
+    <a-entity id="bed" position="0.848 0.250 0.500" rotation="0 90 0">
+      <a-box 
+        width="1.5" height="0.5" depth="2" 
+        material="src: #bed_texture; color: #5cfff7; repeat: 3 3; roughness: 1">
+        shadow>
+      </a-box>
   
-  <a-box 
-    width="1.5" height="1.2" depth="0.1" 
-    position="0 0.35 1.05" 
-    color="#D2B48C">
-  </a-box>
+      <a-box 
+        width="1.5" height="1.2" depth="0.1" 
+        position="0 0.35 1.05" 
+        src="#headboard-texture"
+        material="repeat: 1 1; roughness: 1">
+      </a-box>
 
   <a-box width="0.6" height="0.1" depth="0.3" position="-0.3 0.3 0.7" color="white"></a-box>
   <a-box width="0.6" height="0.1" depth="0.3" position="0.3 0.3 0.7" color="white"></a-box>
