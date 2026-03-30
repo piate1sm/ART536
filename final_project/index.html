@@ -104,18 +104,10 @@
       </a-assets>
 
       <a-assets>
-        <img
-          id="leather"
-          src="brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg"
-        />
-        <img
-          id="light-leather"
-          src="light_leather_02_1k.blend/textures/light_leather_02_diff_1k.jpg"
-        />
-        <img
-          id="grey-leather"
-          src="Leather037_1K-PNG/Leather037_1K-PNG_Displacement.png"
-        />
+        <img id="leather" src="brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg"/>
+        <img id="light-leather" src="light_leather_02_1k.blend/textures/light_leather_02_diff_1k.jpg"/>
+        <img id="grey-leather" src="Leather037_1K-PNG/Leather037_1K-PNG_Displacement.png"/>
+        <!-- <img id="white-leather" scr="leather_white_1k.blend/textures/leather_white_diff_1k.jpg"/> -->
       </a-assets>
 
       <a-assets>
@@ -1675,7 +1667,7 @@
             <a-entity id="doors" position="0 1.150 0.612">
               <a-entity id="front-wrapper-left" position="-0.67 0 0.075">
                 <a-entity id="door-L-leaf" position="0.34 0 0">
-                  <a-box
+                  <a-box static-body
                     class="clickable"
                     door-listener
                     width="0.680"
@@ -1739,7 +1731,7 @@
 
               <a-entity id="front-wrapper-right" position="0.67 0 0.075">
                 <a-entity id="door-R-leaf" position="-0.34 0 0">
-                  <a-box
+                  <a-box static-body
                     class="clickable"
                     door-listener
                     width="0.680"
@@ -3632,12 +3624,12 @@
           position="-0.675 0.878 -0.394"
           rotation="0 90 0"
         >
-          <!-- <a-box width="0.25" height="0.005" depth="0.04" material="src: #white-leather; color: #1d4a0d; roughness: 0.9;"></a-box> -->
+          <a-box width="0.25" height="0.005" depth="0.04" material="color: #19330f; roughness: 0.9;"></a-box>
           <a-cylinder
             position="0 0.005 0"
             radius="0.032"
             height="0.012"
-            material="color: #492c1d; metalness: 0.8; roughness: 0.2;"
+            material="src: #copper-texture; roughness: 0.2; metalness: 0.7"
           ></a-cylinder>
           <a-cylinder
             position="0 0.011 0"
@@ -3683,7 +3675,7 @@
             width="0.25"
             height="0.005"
             depth="0.04"
-            material="color: #000000; roughness: 0.9;"
+            material="color: #301608; roughness: 0.9;"
           ></a-box>
           <a-cylinder
             position="0 0.005 0"
