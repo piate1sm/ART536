@@ -4,6 +4,7 @@
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
     <script>
       AFRAME.registerComponent("door-listener", {
         init: function () {
@@ -38,7 +39,7 @@
   <body>
     <a-scene
       renderer="exposure: 0.5; toneMapping: ACESFilmic; colorManagement: true"
-      physics="debug: false; gravity: -9.8"
+      physics="debug: false; gravity: -9.8; iterations: 20;"
     >
       <a-sky color="#87CEEB"></a-sky>
 
@@ -48,6 +49,7 @@
 
       <!-- <a-light type="point" color="#FFA500" intensity="0.8" distance="15" position="0 3 4"></a-light> -->
       <a-plane 
+        class="walkable"
         static-body 
         rotation="-90 0 0" 
         width="100" 
@@ -57,6 +59,7 @@
       </a-plane>
 
       <a-plane
+        class="walkable"
         id="green-grass"
         rotation="-90 0 0"
         width="20"
@@ -193,6 +196,7 @@
 
       <a-entity id="main-flooring" position="0 0.002 0">
         <a-plane
+          class="walkable"
           position="0.149 0.000 4.107"
           rotation="-90 90 0"
           width="5.470"
@@ -203,6 +207,7 @@
         ></a-plane>
 
         <a-plane
+          class="walkable"
           position="0.362 0.000 8.416"
           rotation="-90 90 0"
           width="3.150"
@@ -213,6 +218,7 @@
         ></a-plane>
 
         <a-plane
+          class="walkable"
           position="-0.025 0.000 -0.077"
           rotation="-90 90 0"
           width="2.910"
@@ -223,6 +229,7 @@
         ></a-plane>
 
         <a-plane
+          class="walkable"
           position="4.196 0.000 7.690"
           rotation="-90 90 0"
           width="1.720"
@@ -233,6 +240,7 @@
         ></a-plane>
 
         <a-plane
+          class="walkable"
           position="3.642 0.000 0.820"
           rotation="-90 90 0"
           width="1.120"
@@ -567,93 +575,50 @@
       </a-entity>
 
       <a-entity id="lavatory-entrance-group" position="2.373 0.000 0.240">
-        <a-entity id="corner-filler" position="0.914 1.295 0">
-          <a-box
-            static-body
-            width="1.023"
-            height="3.230"
-            depth="0.050"
-            position="0.508 0.284 0.006"
-            material="color: #f7f5e6"
-          ></a-box>
-          <a-box
-            static-body
-            width="1.023"
-            height="3.230"
-            depth="0.050"
-            position="0.503 0.309 -0.044"
-            material="color: #556b2f"
-          ></a-box>
-        </a-entity>
+  <a-entity id="corner-filler" position="0.914 1.295 0">
+    <a-box static-body width="1.023" height="3.230" depth="0.050" position="0.508 0.284 0.006" material="color: #f7f5e6"></a-box>
+    <a-box static-body width="1.023" height="3.230" depth="0.050" position="0.503 0.309 -0.044" material="color: #556b2f"></a-box>
+  </a-entity>
 
-        <a-entity id="door-wrapper" position="0 1.615 0" rotation="0 0 0">
-          <a-entity id="door-leaf" position="0.457 0 0">
-            <a-box
-              class="clickable"
-              width="0.914"
-              height="3.230"
-              depth="0.060"
-              color="#ffc87a"
-              material="src: #plywood; repeat: 1 1; roughness: 0.6"
-              position="0.000 -0.556 0.000"
-              door-listener
-            >
-            </a-box>
-            <a-sphere
-              class="clickable"
-              radius="0.035"
-              position="0.360 -0.360 0.040"
-              material="color: #d4af37; metalness: 0.180"
-              door-listener
-            ></a-sphere>
-            <a-sphere
-              class="clickable"
-              radius="0.035"
-              position="0.360 -0.360 -0.040"
-              material="color: #d4af37; metalness: 0.180"
-              door-listener
-            ></a-sphere>
-            <a-image
-              src="#bathroom-sign"
-              width="0.660"
-              height="0.750"
-              position="0.012 0.386 0.035"
-              transparent="true"
-              alpha-test="0.5"
-              scale="0.490 0.540 1.000"
-            ></a-image>
-          </a-entity>
-        </a-entity>
+  <a-entity id="door-wrapper" position="0 1.615 0" rotation="0 0 0">
+    <a-entity id="door-leaf" position="0.457 0 0">
+      <a-box
+        class="clickable"
+        width="0.914"
+        height="3.230"
+        depth="0.060"
+        color="#ffc87a"
+        material="src: #plywood; repeat: 1 1; roughness: 0.6"
+        position="0.000 -0.556 0.000"
+        door-listener
+      ></a-box>
+      <a-sphere class="clickable" radius="0.035" position="0.360 -0.360 0.040" material="color: #d4af37" door-listener></a-sphere>
+      <a-sphere class="clickable" radius="0.035" position="0.360 -0.360 -0.040" material="color: #d4af37" door-listener></a-sphere>
+      <a-image
+      src="#bathroom-sign"
+      width="0.660"
+      height="0.750"
+      position="0.012 0.386 0.035" 
+      transparent="true"
+      alpha-test="0.5"
+      scale="0.490 0.540 1.000"
+    ></a-image>
+    </a-entity>
+  </a-entity>
 
-        <a-box
-          static-body
-          width="0.914"
-          height="0.520"
-          depth="0.05"
-          position="0.457 2.926 0.006"
-          material="color: #f7f5e6"
-        ></a-box>
-        <a-box
-          static-body
-          width="0.914"
-          height="0.520"
-          depth="0.05"
-          position="0.457 2.925 -0.045"
-          material="color: #556b2f"
-        ></a-box>
-      </a-entity>
+  <a-box static-body width="0.914" height="0.520" depth="0.05" position="0.457 2.926 0.006" material="color: #f7f5e6"></a-box>
+  <a-box static-body width="0.914" height="0.520" depth="0.05" position="0.457 2.925 -0.045" material="color: #556b2f"></a-box>
+</a-entity>
 
-      <a-plane
-        id="bathroom-tile-floor"
-        static-body
-        position="3.316 0.007 -0.586"
-        rotation="-90 0 0"
-        width="1.886"
-        height="1.730"
-        src="#bathroom-floor"
-        material="repeat: 2 2; roughness: 0.4"
-      >
-      </a-plane>
+<a-plane
+  id="bathroom-tile-floor"
+  position="3.316 0.007 -0.586"
+  rotation="-90 0 0"
+  width="1.886"
+  height="1.730"
+  src="#bathroom-floor"
+  material="repeat: 2 2; roughness: 0.4"
+></a-plane>
 
       <a-entity id="bathroom-interior" position="0.5 0 0.5">
         <a-entity id="toilet" position="3.499 0.205 -1.658" rotation="0 0 0">
@@ -7028,21 +6993,19 @@
       >
       </a-entity>
 
-      <a-entity
+  <a-entity
   id="rig"
   movement-controls="controls: keyboard, touch; speed: 0.3"
-  kinematic-body="radius: 0.15; height: 1.6;" 
   position="8.0 0.2 5.8"
   rotation="0 90 0"
 >
   <a-entity camera look-controls position="0 1.6 0">
-    <a-entity
-      cursor="fuse: false; rayOrigin: mouse;"
-      raycaster="objects: .clickable"
-    ></a-entity>
+    <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .clickable"></a-entity>
   </a-entity>
 
   <a-entity
+    id="rightHand"
+    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: trigger; collisionEntities: .walkable; curveHitColor: #ffc87a"
     laser-controls="hand: right"
     raycaster="objects: .clickable; far: 5"
   ></a-entity>
