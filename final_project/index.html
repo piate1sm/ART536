@@ -4,7 +4,7 @@
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://github.com/fernandojsg/aframe-teleport-controls/blob/master/dist/aframe-teleport-controls.min.js"></script>
     <script>
       AFRAME.registerComponent("door-listener", {
         init: function () {
@@ -4357,8 +4357,8 @@
           visible="false"
         ></a-cylinder>
 
-        <a-entity gltf-model="#athena-model" scale="1.250 1.320 1.000">
-        </a-entity>
+        <!-- <a-entity gltf-model="#athena-model" scale="1.250 1.320 1.000">
+        </a-entity> -->
       </a-entity>
 
       <a-entity light="type: ambient; color: #BBB"></a-entity>
@@ -7008,7 +7008,7 @@
 
   <a-entity
   id="rig"
-  movement-controls="controls: keyboard, touch; speed: 0.3"
+  movement-controls="controls: keyboard,touch; speed: 0.3"
   kinematic-body="radius: 0.2; height: 1.6;"
   position="8.139 0.2 6.240"
   rotation="0 90 0"
@@ -7029,6 +7029,12 @@
     id="rightHand"
     teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: trigger; collisionEntities: .walkable; curveHitColor: #ffc87a"
     laser-controls="hand: right"
+    raycaster="objects: .clickable; far: 10; showLine: true"
+  ></a-entity>
+  <a-entity
+    id="leftHand"
+    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: trigger; collisionEntities: .walkable; curveHitColor: #ffc87a"
+    laser-controls="hand: left"
     raycaster="objects: .clickable; far: 5; showLine: false"
   ></a-entity>
 </a-entity>
