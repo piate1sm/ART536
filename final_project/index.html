@@ -4,8 +4,7 @@
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://github.com/fernandojsg/aframe-teleport-controls/blob/master/dist/aframe-teleport-controls.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe-teleport-controls@0.3.1/dist/aframe-teleport-controls.min.js"></script> this might work for the movement. -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
     <script>
       AFRAME.registerComponent("door-listener", {
         init: function () {
@@ -60,13 +59,12 @@
       </a-plane>
 
       <a-plane
-        class="walkable"
         id="green-grass"
         rotation="-90 0 0"
         width="20"
         height="20"
         color="#52b788"
-        position="2.571 0.001 4.712"
+        position="2.571 -0.01 4.712"
     ></a-plane>
 
       <a-assets>
@@ -127,7 +125,7 @@
       </a-assets>
 
       <a-assets>
-        <a-asset-item id="athena-model" src="athena3.glb"></a-asset-item>
+        <!-- <a-asset-item id="athena-model" src="athena3.glb"></a-asset-item> -->
         <a-asset-item
           id="light-blue-pillow"
           src="Pillows/light-blue-pillow.glb"
@@ -4360,11 +4358,10 @@
           radius="0.45"
           height="2.5"
           position="0.531 1.250 -0.343"
-          visible="false"
+          visible="true"
         ></a-cylinder>
 
-        <!-- <a-entity gltf-model="#athena-model" scale="1.250 1.320 1.000">
-        </a-entity> -->
+        <!-- <a-entity gltf-model="#athena-model" scale="1.250 1.320 1.000"></a-entity> -->
       </a-entity>
 
       <a-entity light="type: ambient; color: #BBB"></a-entity>
@@ -7012,70 +7009,24 @@
             ></a-image>
           </a-entity>
 
-  <a-entity
-  id="rig"
-  movement-controls="controls: keyboard,touch; speed: 0.3"
-  kinematic-body="radius: 0.2; height: 1.6;"
-  position="8.139 0.2 6.240"
-  rotation="0 90 0"
->
-  <a-entity camera look-controls position="0 1.6 0" id="camera">
-    
-    <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .clickable"></a-entity>
-
-    <a-entity
-      position="0 0 -1"
-      geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-      material="color: black; shader: flat; opacity: 0.5"
-    ></a-entity>
-    
-  </a-entity>
-
-  <a-entity
-    id="rightHand"
-    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: trigger; collisionEntities: .walkable; curveHitColor: #ffc87a"
-    laser-controls="hand: right"
-    raycaster="objects: .clickable; far: 10; showLine: false"
-  ></a-entity>
-  <a-entity
-    id="leftHand"
-    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: trigger; collisionEntities: .walkable; curveHitColor: #ffc87a"
-    laser-controls="hand: left"
-    raycaster="objects: .clickable; far: 5; showLine: false"
-  ></a-entity>
-</a-entity>
-
-<!-- <a-entity
-  id="rig"
-  movement-controls="controls: keyboard, touch; speed: 0.3"
-  kinematic-body="radius: 0.2; height: 1.6;"
-  position="8.139 0.2 6.240"
-  rotation="0 90 0">
-  
-  <a-entity camera look-controls position="0 1.6 0" id="camera">
-    <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .clickable"></a-entity>
-    <a-entity
-      position="0 0 -1"
-      geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-      material="color: black; shader: flat; opacity: 0.5">
-    </a-entity>
-  </a-entity>
-
-  <a-entity
-    id="leftHand"
-    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: thumbstick; collisionEntities: .walkable"
-    laser-controls="hand: left"
-    raycaster="objects: .clickable; far: 5; showLine: false">
-  </a-entity>
-
-  <a-entity
-    id="rightHand"
-    teleport-controls="cameraRig: #rig; teleportOrigin: #camera; button: thumbstick; collisionEntities: .walkable"
-    laser-controls="hand: right"
-    raycaster="objects: .clickable; far: 10; showLine: true">
-  </a-entity>
-
-</a-entity> this could work but idk --> 
+      <a-entity id="player" position="8.139 0.2 6.240" rotation="0 90 0" movement-controls="controls: keyboard; speed: 0.3" kinematic-body="radius: 0.2;" >
+        <a-entity id="camera" 
+          camera="near: 0.001; far: 1000;" 
+          position="0 1.6 0" 
+          look-controls="pointerLockEnabled: true">
+          <!-- Entity used for cursor to handle clicking doors. Does NOT need black dot in middle to function. -->
+          <a-entity cursor="fuse: false;" raycaster="objects: .clickable">
+            <!-- Black dot in middle of screen. -->
+            <a-entity
+              position="0 0 -1"
+              geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.005"
+              material="color: black; shader: flat; opacity: 0.5">
+            </a-entity>
+          </a-entity>
+        </a-entity>
+        <a-entity id="leftHand" oculus-touch-controls="hand: left" blink-controls></a-entity>
+        <a-entity id="rightHand"  oculus-touch-controls="hand: right" blink-controls></a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
