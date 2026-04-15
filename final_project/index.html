@@ -39,8 +39,9 @@
   <body>
     <a-scene
       renderer="exposure: 0.5; toneMapping: ACESFilmic; colorManagement: true"
-      physics="debug: false; gravity: -9.8; iterations: 20;"
-    >
+      physics="debug: false; gravity: -9.8; iterations: 20"
+      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/;">
+
       <a-sky color="#87CEEB"></a-sky>
 
       <!-- <a-light type="directional" color="#FFF" intensity="1.2" position="5 10 10"></a-light> -->
@@ -125,7 +126,10 @@
       </a-assets>
 
       <a-assets>
-        <!-- <a-asset-item id="athena-model" src="athena3.glb"></a-asset-item> -->
+        <a-asset-item
+          id="athena"
+          src="athena-v1.glb"
+        ></a-asset-item>
         <a-asset-item
           id="light-blue-pillow"
           src="Pillows/light-blue-pillow.glb"
@@ -4348,21 +4352,24 @@
         </a-entity>
       </a-entity>
 
-      <a-entity
-        id="athena-container"
-        position="4.609 0.000 7.794"
-        rotation="0 180 0"
-      >
-        <a-cylinder
-          static-body
-          radius="0.45"
-          height="2.5"
-          position="0.531 1.250 -0.343"
-          visible="true"
-        ></a-cylinder>
+  <a-entity id="athena-container" position="4.609 0.000 7.794" rotation="0 180 0">
+  <a-cylinder
+    static-body
+    radius="0.45"
+    height="2.5"
+    position="0.531 1.250 -0.343"
+    visible="false">
+  </a-cylinder>
 
-        <!-- <a-entity gltf-model="#athena-model" scale="1.250 1.320 1.000"></a-entity> -->
-      </a-entity>
+  <a-entity 
+    id="athena-mesh" 
+    gltf-model="#athena-model" 
+    scale="1.250 1.320 1.000">
+  </a-entity>
+</a-entity>
+
+  <a-entity gltf-model="#athena" scale="1.250 1.320 1.000" position="4.637 0.000 7.668" rotation="0 180 0"></a-entity>
+  </a-entity>
 
       <a-entity light="type: ambient; color: #BBB"></a-entity>
       <a-entity
@@ -4372,10 +4379,9 @@
       <!-- <a-entity light="type: directional; color: #fffdf2; intensity: 0.8;"></a-entity> -->
       <a-entity
         id="athena-light"
-        light="type: directional; intensity: 0.8; castShadow: true;"
-        position="2 3 -1"
-        target="#athena"
-      ></a-entity>
+        light="type: directional; intensity: 0.8;" 
+        position="2 3 -1">
+      </a-entity>
 
       <a-entity
         id="laural-wreath-pedestal"
