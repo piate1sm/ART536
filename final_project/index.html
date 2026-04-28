@@ -47,14 +47,27 @@
   canvas {
   touch-action: none;
 }
+<script>
+  // Force the joystick to talk to the player entity
+  document.addEventListener('DOMContentLoaded', () => {
+    const scene = document.querySelector('a-scene');
+    scene.addEventListener('loaded', () => {
+      const joystick = document.querySelector('[joystick]');
+      if (joystick) {
+        // This ensures the joystick targets the player
+        joystick.setAttribute('joystick', {target: '#player'});
+      }
+    });
+  });
+</script>
 </style>
   </head>
   <body>
     <a-scene
       joystick
       renderer="precision: low; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic; alpha: false;"
-      physics="debug: false; gravity: -9.8; iterations: 2"
-      device-orientation-permission-ui="enabled: true">
+      physics="debug: false; gravity: -9.8; iterations: 2; driver: local;"
+      vr-mode-ui="enabled: true">
 
       <a-sky color="#82d0f2"></a-sky>
 
