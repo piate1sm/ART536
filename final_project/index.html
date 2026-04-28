@@ -47,26 +47,14 @@
   canvas {
   touch-action: none;
 }
-<script>
-  // Force the joystick to talk to the player entity
-  document.addEventListener('DOMContentLoaded', () => {
-    const scene = document.querySelector('a-scene');
-    scene.addEventListener('loaded', () => {
-      const joystick = document.querySelector('[joystick]');
-      if (joystick) {
-        // This ensures the joystick targets the player
-        joystick.setAttribute('joystick', {target: '#player'});
-      }
-    });
-  });
-</script>
+
 </style>
   </head>
   <body>
     <a-scene
       joystick
-      renderer="precision: low; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic; alpha: false;"
-      physics="debug: false; gravity: -9.8; iterations: 2; driver: local;"
+      renderer="precision: medium; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic"
+      physics="debug: false; gravity: -9.8; iterations: 1;"
       vr-mode-ui="enabled: true">
 
       <a-sky color="#82d0f2"></a-sky>
@@ -7075,29 +7063,24 @@
             ></a-image>
           </a-entity>
 
-      <a-entity id="player" 
-          position="8.139 1.0 6.240" 
-          rotation="0 90 0" 
-          movement-controls="controls: keyboard; speed: 0.3" 
-          kinematic-body="radius: 0.2;">
-        
-    <a-entity id="camera" 
-              camera="near: 0.2; far: 1000;" 
-              position="0 1.6 0" 
-              look-controls="touchEnabled: true; magicWindowTrackingEnabled: true;">
-              
-        <a-entity cursor="fuse: false;" raycaster="objects: .clickable">
+      <a-entity id="player" position="8.139 0.2 6.240" rotation="0 90 0" movement-controls="controls: keyboard; touch; speed: 0.3" kinematic-body="radius: 0.2;" >
+        <a-entity id="camera" 
+          camera="near: 0.1; far: 1000;" 
+          position="0 1.6 0" 
+          look-controls="pointerLockEnabled: true">
+          <!-- Entity used for cursor to handle clicking doors. Does NOT need black dot in middle to function. -->
+          <a-entity cursor="fuse: false;" raycaster="objects: .clickable">
+            <!-- Black dot in middle of screen. -->
             <a-entity
               position="0 0 -1"
               geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.005"
               material="color: black; shader: flat; opacity: 0.5">
             </a-entity>
+          </a-entity>
         </a-entity>
-    </a-entity>
-
-    <a-entity id="leftHand" oculus-touch-controls="hand: left" blink-controls></a-entity>
-    <a-entity id="rightHand" oculus-touch-controls="hand: right" blink-controls></a-entity>
-</a-entity>
+        <a-entity id="leftHand" oculus-touch-controls="hand: left" blink-controls></a-entity>
+        <a-entity id="rightHand"  oculus-touch-controls="hand: right" blink-controls></a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
