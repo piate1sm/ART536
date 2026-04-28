@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/mrx95/aframe-joystick@master/dist/aframe-joystick.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
     <script>
       AFRAME.registerComponent("door-listener", {
         init: function () {
@@ -36,21 +36,14 @@
         },
       });
     </script>
-    <!-- <style>
-  /* Prevents the rubber-banding bounce effect on iOS */
-  html, body {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-</style> -->
   </head>
   <body>
     <a-scene
-      renderer="precision: medium; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic"
+      renderer="precision: medium; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic; powerPreference: high-performance; 
+      physicallyCorrectLights: false;"
       physics="debug: false; gravity: -9.8; iterations: 1;"
-      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/;">
+      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/;"
+      device-orientation-permission-ui-enabled="true">
 
       <a-sky color="#82d0f2"></a-sky>
 
@@ -90,134 +83,140 @@
       <a-assets>
         <img
           id="bathroom-floor"
-          src="granite_tile_1k.blend/textures/granite_tile_diff_1k.jpg"
-        />
-        <img id="plywood" src="plywood_1k.blend/textures/plywood_diff_1k.jpg" />
-        <img id="black-countertop" src="black_marble_gold.png" />
+          src="granite_tile_1k.blend/textures/granite_tile_diff_1k.jpg" crossorigin="anonymous"/>
+        <img id="plywood" src="plywood_1k.blend/textures/plywood_diff_1k.jpg" crossorigin="anonymous"/>
+        <img id="black-countertop" src="black_marble_gold.png" crossorigin="anonymous"/>
         <!-- <img id="wall" src="beige_wall_001_1k.blend/textures/beige_wall_001_disp_1k.png"> -->
-        <img id="Blue-tiles" src="Blue-tiles.jpg" />
-        <img id="flooring" src="herringbone_parquet_diff_1k.jpg" />
-        <img id="white-countertop" src="white_marble_gold.jpeg" />
-        <img id="curtain" src="terlenka_1k.blend/textures/terlenka_anisotropy_strength_1k.png"/>
-        <img id="brick" src="brick.jpg"/>
+        <img id="Blue-tiles" src="Blue-tiles.jpg" crossorigin="anonymous"/>
+        <img id="flooring" src="herringbone_parquet_diff_1k.jpg" crossorigin="anonymous"/>
+        <img id="white-countertop" src="white_marble_gold.jpeg" crossorigin="anonymous"/>
+        <img id="curtain" src="terlenka_1k.blend/textures/terlenka_anisotropy_strength_1k.png" crossorigin="anonymous"/>
+        <img id="brick" src="brick.jpg" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="black-vest" src="jackets/black-vest.png" />
-        <img id="green-vest" src="jackets/green-vest.png" />
-        <img id="green-jacket" src="jackets/green-jacket.png" />
-        <img id="grey-jacket" src="jackets/grey-jacket.png" />
-        <img id="brown-jacket" src="jackets/brown-jacket.png" />
+        <img id="black-vest" src="jackets/black-vest.png" crossorigin="anonymous"/>
+        <img id="green-vest" src="jackets/green-vest.png" crossorigin="anonymous"/>
+        <img id="green-jacket" src="jackets/green-jacket.png" crossorigin="anonymous"/>
+        <img id="grey-jacket" src="jackets/grey-jacket.png" crossorigin="anonymous"/>
+        <img id="brown-jacket" src="jackets/brown-jacket.png" crossorigin="anonymous"/>
       </a-assets>
 
       <assets>
-        <img id="dark-denim" src="Pants/dark-denim.png" />
-        <img id="medium-denim" src="Pants/medium-denim.png" />
-        <img id="light-denim" src="Pants/light-denim.png" />
-        <img id="hiking-pants" src="Pants/hiking-pants.png" />
+        <img id="dark-denim" src="Pants/dark-denim.png" crossorigin="anonymous"/>
+        <img id="medium-denim" src="Pants/medium-denim.png" crossorigin="anonymous"/>
+        <img id="light-denim" src="Pants/light-denim.png" crossorigin="anonymous"/>
+        <img id="hiking-pants" src="Pants/hiking-pants.png" crossorigin="anonymous"/>
       </assets>
 
       <a-assets>
-        <img id="black-shoe" src="Shoes/black-shoe.png" />
-        <img id="brown-shoe" src="Shoes/brown-shoe.png" />
-        <img id="tan-shoe" src="Shoes/tan-shoes.png" />
-        <img id="green-shoe" src="Shoes/green-shoe.png" />
+        <img id="black-shoe" src="Shoes/black-shoe.png" crossorigin="anonymous"/>
+        <img id="brown-shoe" src="Shoes/brown-shoe.png" crossorigin="anonymous"/>
+        <img id="tan-shoe" src="Shoes/tan-shoes.png" crossorigin="anonymous"/>
+        <img id="green-shoe" src="Shoes/green-shoe.png" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="suite-case" src="suite-case-texture.png" />
-        <img id="carpet-texture" src="carpet-texture.png" />
+        <img id="suite-case" src="suite-case-texture.png" crossorigin="anonymous"/>
+        <img id="carpet-texture" src="carpet-texture.png" crossorigin="anonymous"/>
         <img id="rug" src="rug.jpg" />
-        <img id="chair-texture" src="chair-texture.png" />
+        <img id="chair-texture" src="chair-texture.png" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="leather" src="brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg"/>
-        <img id="light-leather" src="light_leather_02_1k.blend/textures/light_leather_02_diff_1k.jpg"/>
-        <img id="grey-leather" src="Leather037_1K-PNG/Leather037_1K-PNG_Displacement.png"/>
+        <img id="leather" src="brown_leather_1k.blend/textures/brown_leather_albedo_1k.jpg" crossorigin="anonymous"/>
+        <img id="light-leather" src="light_leather_02_1k.blend/textures/light_leather_02_diff_1k.jpg" crossorigin="anonymous"/>
+        <img id="grey-leather" src="Leather037_1K-PNG/Leather037_1K-PNG_Displacement.png" crossorigin="anonymous"/>
         <!-- <img id="white-leather" scr="leather_white_1k.blend/textures/leather_white_diff_1k.jpg"/> -->
       </a-assets>
 
       <a-assets>
-        <img id="compass" src="compass-2.jpeg" />
+        <img id="compass" src="compass-2.jpeg" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
         <a-asset-item
           id="athena"
           src="athena-v1.glb"
+          crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="light-blue-pillow"
           src="Pillows/light-blue-pillow.glb"
+          crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="green-pillow"
           src="Pillows/green-pillow.glb"
+          crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="beige-pillow"
           src="Pillows/beige-pillow.glb"
+          crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="yellow-blankets"
           src="yellow-blankets.glb"
+          crossorigin="anonymous"
         ></a-asset-item>
-        <a-asset-item id="white-column" src="white-column.glb"></a-asset-item>
-        <a-asset-item id="greek-laruel" src="greek_laurel.glb"></a-asset-item>
-        <a-asset-item id="logo" src="logo.obj"></a-asset-item>
-        <a-asset-item id="logo-mtl" src="logo.mtl"></a-asset-item>
-        <a-asset-item id="logon" src="logon.glb"></a-asset-item>
+        <a-asset-item id="white-column" src="white-column.glb" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="greek-laruel" src="greek_laurel.glb" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="logo" src="logo.obj" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="logo-mtl" src="logo.mtl" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="logon" src="logon.glb" crossorigin="anonymous"></a-asset-item>
       </a-assets>
 
       <a-assets>
-        <img id="sweater-texture-1" src="Sweaters/sweater-texture-1.png" />
-        <img id="sweater-texture-2" src="Sweaters/sweater-texture-2.png" />
-        <img id="sweater-texture-3" src="Sweaters/sweater-texture-3.png" />
+        <img id="sweater-texture-1" src="Sweaters/sweater-texture-1.png" crossorigin="anonymous"/>
+        <img id="sweater-texture-2" src="Sweaters/sweater-texture-2.png" crossorigin="anonymous"/>
+        <img id="sweater-texture-3" src="Sweaters/sweater-texture-3.png" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="copper-texture" src="copper-texture.jpg" />
-        <img id="plate-texture" src="plate-texture.jpg" />
-        <img id="Iridescent-glass" src="Iridescent-glass.JPG" />
+        <img id="copper-texture" src="copper-texture.jpg" crossorigin="anonymous"/>
+        <img id="plate-texture" src="plate-texture.jpg" crossorigin="anonymous"/>
+        <img id="Iridescent-glass" src="Iridescent-glass.JPG" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="bathroom-sign" src="stationary/bathroom-sign.png" />
-        <img id="logo-symbol" src="stationary/logo-symbol.png" />
-        <img id="door-sign" src="stationary/door-sign.png" />
-        <img id="sign-logo" src="stationary/sign-logo.png" />
-        <img id="driftwood-label" src="stationary/driftwood-label.png" />
-        <img id="ocean-breeze-label" src="stationary/ocean-breeze-label.png" />
+        <img id="bathroom-sign" src="stationary/bathroom-sign.png" crossorigin="anonymous"/>
+        <img id="logo-symbol" src="stationary/logo-symbol.png" crossorigin="anonymous"/>
+        <img id="door-sign" src="stationary/door-sign.png" crossorigin="anonymous"/>
+        <img id="sign-logo" src="stationary/sign-logo.png" crossorigin="anonymous"/>
+        <img id="driftwood-label" src="stationary/driftwood-label.png" crossorigin="anonymous"/>
+        <img id="ocean-breeze-label" src="stationary/ocean-breeze-label.png" crossorigin="anonymous"/>
         <img
           id="lemon-lavender-label"
           src="stationary/lemon-lavender-label.png"
+          crossorigin="anonymous"
         />
-        <img id="lotus-eaters-label" src="stationary/lotus-eaters-label.png" />
-        <img id="hearth-label" src="stationary/hearth-label.png" />
-        <img id="circe-label" src="stationary/circe-label.png" />
-        <img id="calypso-label" src="stationary/calypso-label.png" />
-        <img id="ithica-label" src="stationary/ithica-label.png" />
+        <img id="lotus-eaters-label" src="stationary/lotus-eaters-label.png" crossorigin="anonymous"/>
+        <img id="hearth-label" src="stationary/hearth-label.png" crossorigin="anonymous"/>
+        <img id="circe-label" src="stationary/circe-label.png" crossorigin="anonymous"/>
+        <img id="calypso-label" src="stationary/calypso-label.png" crossorigin="anonymous"/>
+        <img id="ithica-label" src="stationary/ithica-label.png" crossorigin="anonymous"/>
         <img
           id="wine-dark-sea-label"
           src="stationary/wine-dark-sea-label.png"
+          crossorigin="anonymous"
         />
-        <img id="box-logo" src="stationary/box-logo.png" />
-        <img id="quote" src="stationary/quote.png" />
-        <img id="quote-2" src="stationary/quote-2.png" />
+        <img id="box-logo" src="stationary/box-logo.png" crossorigin="anonymous"/>
+        <img id="quote" src="stationary/quote.png" crossorigin="anonymous"/>
+        <img id="quote-2" src="stationary/quote-2.png" crossorigin="anonymous"/>
       </a-assets>
 
       <a-assets>
-        <img id="argos" src="Decor/argos.png" />
-        <img id="penelope" src="Decor/penelope.jpg" />
-        <img id="odysseus" src="Decor/odysseus.jpg" />
-        <img id="homer" src="Decor/homer.png" />
-        <img id="palace" src="Decor/palace.png" />
-        <img id="ship" src="Decor/ship.png" />
-        <img id="ithica-island-greece" src="Decor/ithica-island-greece.png" />
-        <img id="ithica" src="Decor/ithica.png" />
-        <img id="map" src="Decor/map.png" />
-        <img id="penelope_tapestry" src="Decor/penelope_tapestry.png" />
+        <img id="argos" src="Decor/argos.png" crossorigin="anonymous"/>
+        <img id="penelope" src="Decor/penelope.jpg" crossorigin="anonymous"/>
+        <img id="odysseus" src="Decor/odysseus.jpg" crossorigin="anonymous"/>
+        <img id="homer" src="Decor/homer.png" crossorigin="anonymous"/>
+        <img id="palace" src="Decor/palace.png" crossorigin="anonymous"/>
+        <img id="ship" src="Decor/ship.png" crossorigin="anonymous"/>
+        <img id="ithica-island-greece" src="Decor/ithica-island-greece.png" crossorigin="anonymous"/>
+        <img id="ithica" src="Decor/ithica.png" crossorigin="anonymous"/>
+        <img id="map" src="Decor/map.png" crossorigin="anonymous"/>
+        <img id="penelope_tapestry" src="Decor/penelope_tapestry.png" crossorigin="anonymous"/>
       </a-assets>
 
       <a-entity id="main-flooring" position="0 0.002 0">
@@ -7062,7 +7061,7 @@
         <a-entity id="camera" 
           camera="near: 0.001; far: 1000;" 
           position="0 1.6 0" 
-          look-controls="pointerLockEnabled: true">
+          look-controls="pointerLockEnabled: true; touchEnabled: true; magicWindowTrackingEnabled: true;">
           <!-- Entity used for cursor to handle clicking doors. Does NOT need black dot in middle to function. -->
           <a-entity cursor="fuse: false;" raycaster="objects: .clickable">
             <!-- Black dot in middle of screen. -->
