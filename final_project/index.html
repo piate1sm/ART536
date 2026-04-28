@@ -5,6 +5,7 @@
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrx95/aframe-joystick@master/dist/aframe-joystick.min.js"></script>
     <script>
       AFRAME.registerComponent("door-listener", {
         init: function () {
@@ -47,8 +48,9 @@
   </head>
   <body>
     <a-scene
+      joystick
       renderer="precision: medium; antialias: false; colorManagement: true; exposure: 0.5; toneMapping: ACESFilmic"
-      physics="debug: false; gravity: -9.8; iterations: 20"
+      physics="debug: false; gravity: -9.8; iterations: 5"
       gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.6/;">
 
       <a-sky color="#82d0f2"></a-sky>
@@ -7062,11 +7064,11 @@
       <a-entity id="player" 
           position="8.139 1.0 6.240" 
           rotation="0 90 0" 
-          movement-controls="controls: keyboard, touch; speed: 0.3" 
+          movement-controls="controls: keyboard; speed: 0.3" 
           kinematic-body="radius: 0.2;">
         
     <a-entity id="camera" 
-              camera="near: 0.01; far: 1000;" 
+              camera="near: 0.1; far: 1000;" 
               position="0 1.6 0" 
               look-controls="pointerLockEnabled: true; touchEnabled: true; magicWindowTrackingEnabled: true;">
               
