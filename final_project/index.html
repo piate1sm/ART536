@@ -36,6 +36,21 @@
         },
       });
     </script>
+    <script>
+  AFRAME.registerComponent('optimize-textures', {
+    init: function () {
+      this.el.addEventListener('model-loaded', () => {
+        const mesh = this.el.getObject3D('mesh');
+        mesh.traverse(node => {
+          if (node.isMesh && node.material.map) {
+            node.material.map.minFilter = THREE.LinearFilter; // Stops Mipmapping
+            node.material.map.generateMipmaps = false; 
+          }
+        });
+      });
+    }
+  });
+</script>
   </head>
   <body>
     <a-scene
@@ -7057,14 +7072,17 @@
             ></a-image>
           </a-entity>
 
-      <a-entity id="player" position="8.139 0.2 6.240" rotation="0 90 0" movement-controls="controls: keyboard; speed: 0.3" kinematic-body="radius: 0.2;" >
+      <a-entity id="player" position="8.139 0.2 6.240" rotation="0 90 0" movement-controls="controls: keyboard, touch; speed: 0.3" kinematic-body="radius: 0.2;" >
+        
         <a-entity id="camera" 
-          camera="near: 0.001; far: 1000;" 
+          camera="near: 0.1; far: 1000;" 
           position="0 1.6 0" 
           look-controls="pointerLockEnabled: true; touchEnabled: true; magicWindowTrackingEnabled: true;">
           <!-- Entity used for cursor to handle clicking doors. Does NOT need black dot in middle to function. -->
+          
           <a-entity cursor="fuse: false;" raycaster="objects: .clickable">
             <!-- Black dot in middle of screen. -->
+            
             <a-entity
               position="0 0 -1"
               geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.005"
